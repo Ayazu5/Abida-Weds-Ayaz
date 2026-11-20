@@ -20,11 +20,11 @@ root.style.setProperty("--font-body", config.theme.fonts.body);
 const customHeroStyle = document.createElement("style");
 customHeroStyle.textContent = `
   .hero__name-initial {
-    font-family: 'Parisienne', cursive;
-    font-style: normal;
-    font-size: 0.96em;
+    font-family: 'Alex Brush', cursive !important;
+    font-style: normal !important;
+    font-size: 1.02em;
     display: inline-block;
-    margin-right: 0.06em;
+    margin-right: 0.01em;
   }
   .hero__bismillah {
     font-size: calc(1em + 2pt) !important;
@@ -38,12 +38,13 @@ customHeroStyle.textContent = `
   }
   .hero__parents {
     font-family: var(--font-display) !important;
-    font-size: inherit !important;
+    font-size: clamp(0.88rem, 2.6vw, 1.05rem) !important;
     font-weight: 400 !important;
     text-transform: none !important;
     letter-spacing: 0.01em !important;
     line-height: 1.35 !important;
-    color: inherit !important;
+    color: var(--ink, #17312c) !important;
+    opacity: 1 !important;
     display: block;
     margin-top: 0.25rem;
   }
@@ -51,6 +52,7 @@ customHeroStyle.textContent = `
     font-family: var(--font-display) !important;
     text-transform: none !important;
     letter-spacing: 0.01em !important;
+    color: var(--ink, #17312c) !important;
   }
 `;
 document.head.appendChild(customHeroStyle);
