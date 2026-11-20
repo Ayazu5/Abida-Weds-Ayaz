@@ -16,14 +16,15 @@ root.style.setProperty("--font-names", config.theme.fonts.names);
 root.style.setProperty("--font-display", config.theme.fonts.display);
 root.style.setProperty("--font-body", config.theme.fonts.body);
 
-// Stylish Capital 'A' & +2pt Font Size Boost for Hero Section
+// Hero Typography & Alignment Refinements
 const customHeroStyle = document.createElement("style");
 customHeroStyle.textContent = `
   .hero__name-initial {
-    font-family: 'Alex Brush', cursive;
-    font-size: 1.08em;
+    font-family: 'Parisienne', cursive;
+    font-style: normal;
+    font-size: 0.96em;
     display: inline-block;
-    margin-right: 0.02em;
+    margin-right: 0.06em;
   }
   .hero__bismillah {
     font-size: calc(1em + 2pt) !important;
@@ -36,9 +37,20 @@ customHeroStyle.textContent = `
     font-size: calc(1em + 3pt) !important;
   }
   .hero__parents {
-    font-size: calc(0.85em + 2pt) !important;
+    font-family: var(--font-display) !important;
+    font-size: inherit !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.35 !important;
+    color: inherit !important;
     display: block;
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
+  }
+  .hero__closing-line {
+    font-family: var(--font-display) !important;
+    text-transform: none !important;
+    letter-spacing: 0.01em !important;
   }
 `;
 document.head.appendChild(customHeroStyle);

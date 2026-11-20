@@ -52,7 +52,7 @@ export const weddingConfig = {
   program: [
     { time: "08:00 PM", title: "Dinner", detail: "Welcome and Dinner" },
     { time: "09:00 PM", title: "Baraat Arrival", detail: "Arrival of the Baraat & Nikah Ceremony" },
-    { time: "11:00 PM", title: "Vidai", detail: "Farewell" }
+    { time: "11:00 PM", title: "Rukhsati", detail: "Farewell" }
   ],
   familyGroups: [
     {

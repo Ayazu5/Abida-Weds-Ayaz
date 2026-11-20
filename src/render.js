@@ -12,12 +12,12 @@ const renderMultilineText = (value = "") =>
 const renderParentLine = (value = "") =>
   renderMultilineText(String(value).replace(/^(Daughter of|Son of)\s+/i, "$1\n"));
 
-const renderStylishName = (name = "") => {
+const renderHeroName = (name = "") => {
   const clean = String(name).trim();
   if (!clean) return "";
   const firstLetter = escapeHtml(clean.charAt(0));
   const restLetters = escapeHtml(clean.slice(1));
-  return `<span class="hero__name-initial">${firstLetter}</span>${restLetters}`;
+  return `<i class="hero__name-initial">${firstLetter}</i>${restLetters}`;
 };
 
 export function renderInvitation(config) {
@@ -67,7 +67,7 @@ export function renderInvitation(config) {
         <h1 class="hero__names">
           <span class="hero__person">
             <span class="hero__name">
-              ${renderStylishName(couple.brideName)}
+              ${renderHeroName(couple.brideName)}
             </span>
             ${couple.brideParents ? `
               <span class="hero__parents">
@@ -80,7 +80,7 @@ export function renderInvitation(config) {
 
           <span class="hero__person">
             <span class="hero__name">
-              ${renderStylishName(couple.groomName)}
+              ${renderHeroName(couple.groomName)}
             </span>
             ${couple.groomParents ? `
               <span class="hero__parents">
@@ -113,14 +113,7 @@ export function renderInvitation(config) {
           <h2 id="family-heading">Our family welcomes you</h2>
 
           <div class="family-grid">
-            ${config.familyGroups.map((group) => `
-              <article class="family-card">
-                <h3>${escapeHtml(group.title)}</h3>
-                <ul>
-                  ${group.names.map((entry) => {
-                    const match = String(entry).match(/^(.*?)\s*:\s*(\d{10})$/);
-                    if (!match) {
-                      return `<li>${escapeHtml(entry)}</li>`;
+            ${config.familyGroups.map((group) => ` <article class="family-card"> <h3>${escapeHtml(group.title)}</h3> <ul> ${group.names.map((entry) => { const match = String(entry).match(/^(.*?)\s*:\s*(\d{10})$/); if (!match) { return `<li>${escapeHtml(entry)}</li>`;
                     }
                     const [, label, phone] = match;
                     return `
@@ -224,7 +217,7 @@ export function renderInvitation(config) {
     ${sections.timeline ? `
       <section class="section timeline-section reveal-on-scroll" id="timeline">
         <div class="section__inner section__inner--narrow">
-          <p class="section-kicker">${escapeHtml(wedding.displayDate)} · ${escapeHtml(wedding.day)}</p>
+          <p class="section-kicker">${escapeHtml(wedding.displayDate)} ·${escapeHtml(wedding.day)}</p>
           <h2>${escapeHtml(copy.timelineTitle)}</h2>
           <div class="timeline">
             ${program.map((item, index) => `
@@ -265,7 +258,7 @@ export function renderInvitation(config) {
           <p class="closing__arabic"></p>
           <h2>${escapeHtml(copy.closingTitle)}</h2>
           <p>${escapeHtml(copy.closingBody)}</p>
-          <div class="closing__names">${renderStylishName(couple.brideName)}<br><span>&amp;</span><br>${renderStylishName(couple.groomName)}</div>
+          <div class="closing__names">${escapeHtml(couple.brideName)}<br><span>&amp;</span><br>${escapeHtml(couple.groomName)}</div>
           <time>${escapeHtml(wedding.displayDate)}</time>
           <a href="#top" class="back-to-top">Back to the beginning ↑</a>
         </div>
