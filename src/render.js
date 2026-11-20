@@ -12,6 +12,14 @@ const renderMultilineText = (value = "") =>
 const renderParentLine = (value = "") =>
   renderMultilineText(String(value).replace(/^(Daughter of|Son of)\s+/i, "$1\n"));
 
+const renderStylishName = (name = "") => {
+  const clean = String(name).trim();
+  if (!clean) return "";
+  const firstLetter = escapeHtml(clean.charAt(0));
+  const restLetters = escapeHtml(clean.slice(1));
+  return `<span class="hero__name-initial">${firstLetter}</span>${restLetters}`;
+};
+
 export function renderInvitation(config) {
   const { couple, copy, wedding, media, venue, program, sections } = config;
 
@@ -59,11 +67,11 @@ export function renderInvitation(config) {
         <h1 class="hero__names">
           <span class="hero__person">
             <span class="hero__name">
-              ${escapeHtml(couple.groomName)}
+              ${renderStylishName(couple.brideName)}
             </span>
-            ${couple.groomParents ? `
+            ${couple.brideParents ? `
               <span class="hero__parents">
-                ${renderParentLine(couple.groomParents)}
+                ${renderParentLine(couple.brideParents)}
               </span>
             ` : ""}
           </span>
@@ -72,11 +80,11 @@ export function renderInvitation(config) {
 
           <span class="hero__person">
             <span class="hero__name">
-              ${escapeHtml(couple.brideName)}
+              ${renderStylishName(couple.groomName)}
             </span>
-            ${couple.brideParents ? `
+            ${couple.groomParents ? `
               <span class="hero__parents">
-                ${renderParentLine(couple.brideParents)}
+                ${renderParentLine(couple.groomParents)}
               </span>
             ` : ""}
           </span>
@@ -257,7 +265,7 @@ export function renderInvitation(config) {
           <p class="closing__arabic"></p>
           <h2>${escapeHtml(copy.closingTitle)}</h2>
           <p>${escapeHtml(copy.closingBody)}</p>
-          <div class="closing__names">${escapeHtml(couple.groomName)}<br><span>&amp;</span><br>${escapeHtml(couple.brideName)}</div>
+          <div class="closing__names">${renderStylishName(couple.brideName)}<br><span>&amp;</span><br>${renderStylishName(couple.groomName)}</div>
           <time>${escapeHtml(wedding.displayDate)}</time>
           <a href="#top" class="back-to-top">Back to the beginning ↑</a>
         </div>

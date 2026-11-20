@@ -16,7 +16,34 @@ root.style.setProperty("--font-names", config.theme.fonts.names);
 root.style.setProperty("--font-display", config.theme.fonts.display);
 root.style.setProperty("--font-body", config.theme.fonts.body);
 
-document.title = `${config.couple.groomName} & ${config.couple.brideName} | Nikah Ceremony Invitation`;
+// Stylish Capital 'A' & +2pt Font Size Boost for Hero Section
+const customHeroStyle = document.createElement("style");
+customHeroStyle.textContent = `
+  .hero__name-initial {
+    font-family: 'Alex Brush', cursive;
+    font-size: 1.08em;
+    display: inline-block;
+    margin-right: 0.02em;
+  }
+  .hero__bismillah {
+    font-size: calc(1em + 2pt) !important;
+  }
+  .hero__intro p,
+  .hero__closing-line {
+    font-size: calc(1em + 2pt) !important;
+  }
+  .hero__name {
+    font-size: calc(1em + 3pt) !important;
+  }
+  .hero__parents {
+    font-size: calc(0.85em + 2pt) !important;
+    display: block;
+    margin-top: 0.2rem;
+  }
+`;
+document.head.appendChild(customHeroStyle);
+
+document.title = `${config.couple.brideName} & ${config.couple.groomName} | Nikah Ceremony Invitation`;
 
 document.addEventListener("contextmenu", (event) => {
   event.preventDefault();

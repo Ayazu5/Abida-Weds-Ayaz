@@ -1,12 +1,12 @@
 export const weddingConfig = {
   meta: {
-    slug: "ayaz-weds-abida",
+    slug: "abida-weds-ayaz",
   },
   couple: {
-    groomName: "Ayaz",
-    groomParents: "",
     brideName: "Abida",
-    brideParents: "",
+    brideParents: "Daughter of Naeem Ahmed",
+    groomName: "Ayaz",
+    groomParents: "Son of Nawab Ahmed",
   },
   wedding: {
     displayDate: "December 07, 2026",
@@ -28,7 +28,7 @@ export const weddingConfig = {
     introPoster: "./assets/video/intro.webp",
     backgroundMusic: "./assets/audio/bgm1.mp3",
     gallery: [
-      { src: "./assets/gallery/gallery-01.jpg", alt: "Ayaz and Abida" }
+      { src: "./assets/gallery/gallery-01.jpg", alt: "Abida and Ayaz" }
     ]
   },
   copy: {
