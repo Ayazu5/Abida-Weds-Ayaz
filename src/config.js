@@ -15,8 +15,8 @@ export const weddingConfig = {
     time: "08:00 PM Onwards",
   },
   venue: {
-    name: "Titanic Banquet",
-    address: "New Delhi",
+    name: "Titanic Marriage Hall",
+    address: "Jafrabad, New Delhi",
     note: "Nikah Ceremony Venue",
     mapsUrl: "https://maps.app.goo.gl/yFFUpgdmuCoGnM6T6",
   },
